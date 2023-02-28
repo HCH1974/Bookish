@@ -3,21 +3,26 @@
 @{
     ViewData["Title"] = "Books List";
 }
-<div>
-    <h2>Books List</h2>
-</div>
 
+<h2>Books List</h2>
 
-<div>
-    <ul>
-        @foreach (var book in Model)
-        {
-            <li>
-                <div>Book Name:<code>@book.BookName</code> </div>
-                <div>Author Name:<code>@book.AuthorName</code> </div>
-                <div>Total Copies:<code>@book.TotalNoOfCopies</code> </div>
-                <div>Available Copies:<code>@book.AvailableCopies</code> </div>
-            </li>
-        }
-    </ul>
-</div>
+<table>
+    <tr>
+        <th>Book Id</th>
+        <th>Book Name</th>
+        <th>Author Name</th>
+        <th>Total Copies</th>
+        <th>Available Copies</th>
+    </tr>
+
+    @foreach (var book in Model)
+    {
+        <tr>
+            <td><code>@book.Id</code> </td>
+            <td><code>@book.BookName</code> </td>
+            <td><code>@book.AuthorName</code> </td>
+            <td><code>@book.TotalNoOfCopies</code> </td>
+            <td><code>@book.AvailableCopies</code> </td>
+        </tr>
+    }
+</table>
