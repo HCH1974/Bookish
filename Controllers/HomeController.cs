@@ -18,8 +18,8 @@ public class HomeController : Controller
         return View();
     }
 
-  
-    [Route("my-route")]    
+
+    [Route("my-route")]
     public IActionResult Privacy()
     {
         return View("Privacy");
@@ -29,11 +29,11 @@ public class HomeController : Controller
     {
         return View();
     }
-
-    // public IActionResult Books()
-    // {
-    //     return View(new Books("Harry Potter", "JK Rowling",10, 15));
-    // }
+    
+    public IActionResult Books()
+    {
+        return View();
+    }
 
     [ResponseCache(Duration = 0, Location = ResponseCacheLocation.None, NoStore = true)]
     public IActionResult Error()

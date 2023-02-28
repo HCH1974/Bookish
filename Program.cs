@@ -1,4 +1,6 @@
 using bookish.Models;
+using bookish;
+
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
@@ -14,7 +16,12 @@ if (!app.Environment.IsDevelopment())
     app.UseHsts();
 }
 
-
+// using (var context = new BookishContext())
+// {
+//     var book = new Books("Harry Potter", "J.K.Rowling", 5, 10);
+//     context.Books.Add(book);
+//     context.SaveChanges();
+// }
 
 app.UseHttpsRedirection();
 app.UseStaticFiles();

@@ -1077,19 +1077,19 @@
     ]
   },
   "packageFolders": {
-    "C:\\Users\\BinKej\\.nuget\\packages\\": {}
+    "C:\\Users\\pranal\\.nuget\\packages\\": {}
   },
   "project": {
     "version": "1.0.0",
     "restore": {
-      "projectUniqueName": "C:\\Training\\bookish\\bookish.csproj",
+      "projectUniqueName": "C:\\Training\\Bookish\\bookish\\bookish.csproj",
       "projectName": "bookish",
-      "projectPath": "C:\\Training\\bookish\\bookish.csproj",
-      "packagesPath": "C:\\Users\\BinKej\\.nuget\\packages\\",
-      "outputPath": "C:\\Training\\bookish\\obj\\",
+      "projectPath": "C:\\Training\\Bookish\\bookish\\bookish.csproj",
+      "packagesPath": "C:\\Users\\pranal\\.nuget\\packages\\",
+      "outputPath": "C:\\Training\\Bookish\\bookish\\obj\\",
       "projectStyle": "PackageReference",
       "configFilePaths": [
-        "C:\\Users\\BinKej\\AppData\\Roaming\\NuGet\\NuGet.Config"
+        "C:\\Users\\pranal\\AppData\\Roaming\\NuGet\\NuGet.Config"
       ],
       "originalTargetFrameworks": [
         "net6.0"
