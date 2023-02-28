@@ -9,6 +9,7 @@ public class BooksController : Controller
     public IActionResult Books()
     {
         var context = new BookishContext();
+        //dispalys the list of books available in the database
         var bookList = context.Books.ToList();
         return View(bookList);
     }
@@ -22,15 +23,4 @@ public class BooksController : Controller
     //         context.SaveChanges();
     //     }
     // }
-
-    // public void ViewBooks()
-    // {
-
-    // }
-
-    // public static string GetName()
-    // {
-    //     return "Bill";
-    // }
-
 }

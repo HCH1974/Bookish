@@ -12,14 +12,9 @@ public class Books
 
     public Books(string bookName, string authorName, int availableCopies, int totalNoOfCopies)
     {
-        //int primary key auto_increment
-        // Id = 0;
         BookName = bookName;
         AuthorName = authorName;
         AvailableCopies = availableCopies;
         TotalNoOfCopies = totalNoOfCopies;
-
     }
-
-
 }
