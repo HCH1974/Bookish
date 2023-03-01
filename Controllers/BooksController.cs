@@ -7,7 +7,7 @@ namespace bookish.Controllers;
 public class BooksController : Controller
 {
 
-    // [Route("Books")]
+    [Route("Books")]
     public IActionResult Books()
     {
         var context = new BookishContext();
@@ -16,14 +16,35 @@ public class BooksController : Controller
         return View(bookList);
     }
 
-    // public void AddBook(Books newBook)
-    // {
+    [HttpGet]
+    public IActionResult AddBook()
+    {
+        return View();
+    }
 
-    //     using (var context = new BookishContext())
-    //     {
-    //         //var book = new Books("Harry Potter", "J.K.Rowling", 5, 10);
-    //         context.Books.Add(newBook);
-    //         context.SaveChanges();
-    //     }
-    // }
+    [HttpPost]
+    public IActionResult SubmitAddBook(Books book)
+    {
+        using (var context = new BookishContext())
+        {
+            var newBook = new Books()
+            {
+                BookName = book.BookName,
+                AuthorName = book.AuthorName,
+                TotalNoOfCopies = book.TotalNoOfCopies,
+                AvailableCopies = book.TotalNoOfCopies
+            };
+            context.Books.Add(newBook);
+            context.SaveChanges();
+        }
+        return RedirectToAction("Books");
+    }
+
+     [HttpPost]
+    public IActionResult CheckoutBook(Books book)
+    {
+       
+        return RedirectToAction("Members");
+    }
+
 }

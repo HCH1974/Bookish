@@ -1,4 +1,5 @@
-﻿using Microsoft.EntityFrameworkCore.Migrations;
+﻿using System;
+using Microsoft.EntityFrameworkCore.Migrations;
 using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 
 #nullable disable
@@ -6,7 +7,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace bookish.Migrations
 {
     /// <inheritdoc />
-    public partial class BookishDataBase : Migration
+    public partial class BookishDB : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)
@@ -35,8 +36,8 @@ namespace bookish.Migrations
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
                     MemberId = table.Column<int>(type: "integer", nullable: false),
                     BookId = table.Column<int>(type: "integer", nullable: false),
-                    CheckoutDate = table.Column<int>(type: "integer", nullable: false),
-                    ReturnDate = table.Column<int>(type: "integer", nullable: false),
+                    CheckoutDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
+                    ReturnDate = table.Column<DateTime>(type: "timestamp with time zone", nullable: false),
                     Returned = table.Column<bool>(type: "boolean", nullable: false)
                 },
                 constraints: table =>
@@ -50,7 +51,8 @@ namespace bookish.Migrations
                 {
                     Id = table.Column<int>(type: "integer", nullable: false)
                         .Annotation("Npgsql:ValueGenerationStrategy", NpgsqlValueGenerationStrategy.IdentityByDefaultColumn),
-                    MemberName = table.Column<string>(type: "text", nullable: false),
+                    FirstName = table.Column<string>(type: "text", nullable: false),
+                    LastName = table.Column<string>(type: "text", nullable: false),
                     PhoneNo = table.Column<int>(type: "integer", nullable: false),
                     EmailId = table.Column<string>(type: "text", nullable: false)
                 },

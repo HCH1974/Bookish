@@ -1,0 +1,20 @@
+@model Checkout
+@using bookish.Models
+
+@{
+    ViewData["Title"] = "Checkout Book";
+}
+<h1>Checkout Book</h1>
+
+<form method="post" asp-controller="Checkout" asp-action="Checkout">
+
+    <label asp-for="BookId">Book Id:</label> 
+    <input asp-for="BookId" />
+
+    <label asp-for="MemberId">Member Id:</label>
+    <input asp-for="MemberId" />
+
+    
+    <button type="submit">Checkout</button>
+</form>
+

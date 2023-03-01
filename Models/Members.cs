@@ -1,18 +1,28 @@
+
+using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
+
 namespace bookish.Models;
 
 public class Members
 {
+    [Key]
+    [DatabaseGenerated(DatabaseGeneratedOption.Identity)]
     public int Id { get; set; }
-    public string MemberName { get; set; }
+    public string FirstName { get; set; }
+    public string LastName { get; set; }
     public int PhoneNo { get; set; }
     public string EmailId { get; set; }
 
-    public Members(int id, string memberName, int phoneNo, string emailId)
+    public Members(int id, string firstName, string lastName, int phoneNo, string emailId)
     {
-        Id = id;
-        MemberName = memberName;
+        
+        FirstName = firstName;
+        LastName = lastName;
         PhoneNo = phoneNo;
         EmailId = emailId;
 
     }
+
+    public Members(){}
 }
