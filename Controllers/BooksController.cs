@@ -1,18 +1,22 @@
 using System.Diagnostics;
 using Microsoft.AspNetCore.Mvc;
 using bookish.Models;
+using bookish.Services;
 
 namespace bookish.Controllers;
 
 public class BooksController : Controller
 {
+    private readonly IBookActions _IBookActions;
+    public BooksController(IBookActions booksAction)
+    {
+        _IBookActions = booksAction;
+    }
 
     [Route("Books")]
     public IActionResult Books()
     {
-        var context = new BookishContext();
-        //dispalys the list of books available in the database
-        var bookList = context.Books.ToList();
+        var bookList = _IBookActions.BooksList();
         return View(bookList);
     }
 
@@ -25,26 +29,7 @@ public class BooksController : Controller
     [HttpPost]
     public IActionResult SubmitAddBook(Books book)
     {
-        using (var context = new BookishContext())
-        {
-            var newBook = new Books()
-            {
-                BookName = book.BookName,
-                AuthorName = book.AuthorName,
-                TotalNoOfCopies = book.TotalNoOfCopies,
-                AvailableCopies = book.TotalNoOfCopies
-            };
-            context.Books.Add(newBook);
-            context.SaveChanges();
-        }
+        _IBookActions.SubmitAddBook(book);
         return RedirectToAction("Books");
     }
-
-     [HttpPost]
-    public IActionResult CheckoutBook(Books book)
-    {
-       
-        return RedirectToAction("Members");
-    }
-
 }

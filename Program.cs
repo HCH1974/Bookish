@@ -1,10 +1,13 @@
 using bookish.Models;
 using bookish;
+using bookish.Services;
 
 var builder = WebApplication.CreateBuilder(args);
 
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.AddTransient<IBookActions, BookActions>();
+//builder.Services.AddScoped<IBookActions, BookActions>();
 
 var app = builder.Build();
 

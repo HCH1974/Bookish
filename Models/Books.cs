@@ -22,8 +22,4 @@ public class Books
         TotalNoOfCopies = totalNoOfCopies;
     }
     public Books(){}
-    // public static implicit operator Books(List<string> v)
-    // {
-    //     throw new NotImplementedException();
-    // }
 }

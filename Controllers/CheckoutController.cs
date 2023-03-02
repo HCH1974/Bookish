@@ -6,15 +6,6 @@ namespace bookish.Controllers;
 
 public class CheckoutController : Controller
 {
-
-
-    // [HttpGet]
-    // public IActionResult CheckoutBook()
-    // {
-
-    //     return View();
-    // }
-    // [Route("MyViewModel")]
     [HttpGet]
     public IActionResult CheckoutBook()
     {

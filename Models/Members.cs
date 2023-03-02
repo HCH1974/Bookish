@@ -25,9 +25,4 @@ public class Members
     }
 
     public Members() { }
-
-    // public static implicit operator Members(List<string> v)
-    // {
-    //     throw new NotImplementedException();
-    // }
 }
