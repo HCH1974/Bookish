@@ -16,7 +16,7 @@ public class Members
 
     public Members(int id, string firstName, string lastName, int phoneNo, string emailId)
     {
-        
+
         FirstName = firstName;
         LastName = lastName;
         PhoneNo = phoneNo;
@@ -24,5 +24,10 @@ public class Members
 
     }
 
-    public Members(){}
+    public Members() { }
+
+    // public static implicit operator Members(List<string> v)
+    // {
+    //     throw new NotImplementedException();
+    // }
 }

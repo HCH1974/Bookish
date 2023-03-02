@@ -7,7 +7,7 @@ using Npgsql.EntityFrameworkCore.PostgreSQL.Metadata;
 namespace bookish.Migrations
 {
     /// <inheritdoc />
-    public partial class BookishDB : Migration
+    public partial class BookishDataBase : Migration
     {
         /// <inheritdoc />
         protected override void Up(MigrationBuilder migrationBuilder)

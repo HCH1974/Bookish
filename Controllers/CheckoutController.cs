@@ -7,28 +7,46 @@ namespace bookish.Controllers;
 public class CheckoutController : Controller
 {
 
-    
+
+    // [HttpGet]
+    // public IActionResult CheckoutBook()
+    // {
+
+    //     return View();
+    // }
+    // [Route("MyViewModel")]
     [HttpGet]
-    public IActionResult CheckoutBook(Books book)
+    public IActionResult CheckoutBook()
     {
-       
-        return View();
+        using (var context = new BookishContext())
+        {
+            var booksName = context.Books.Select(p => p.BookName).ToList();
+            var membersName = context.Members.Select(p => p.FirstName).ToList();
+            var listViewModel = new MyViewModel()
+            {
+                BookName = booksName,
+                MemberName = membersName
+
+            };
+            return View(listViewModel);
+        }
     }
 
+    [Route("Books")]
     [HttpPost]
     public IActionResult Checkout(Checkout check)
     {
         using (var context = new BookishContext())
         {
-            var checkout  = new Checkout()
+            var checkout = new Checkout()
             {
                 MemberId = check.MemberId,
-                BookId= check.BookId
+                BookId = check.BookId
             };
             context.Checkout.Add(checkout);
             context.SaveChanges();
         }
-        return RedirectToAction("Books");
+        return Redirect("Books");
     }
 
 }

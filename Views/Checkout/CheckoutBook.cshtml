@@ -1,5 +1,4 @@
-@model Checkout
-@using bookish.Models
+@model MyViewModel
 
 @{
     ViewData["Title"] = "Checkout Book";
@@ -8,13 +7,28 @@
 
 <form method="post" asp-controller="Checkout" asp-action="Checkout">
 
-    <label asp-for="BookId">Book Id:</label> 
-    <input asp-for="BookId" />
+    <label>Book Name</label>
+    <select>
 
-    <label asp-for="MemberId">Member Id:</label>
-    <input asp-for="MemberId" />
+        @foreach (var mybookview in Model.BookName)
+        {
+            <option> <code>@mybookview</code> </option>
+        }
 
-    
+    </select>
+
+
+    <label>Member Name</label>
+    <select>
+
+        @foreach (var mymemberview in Model.MemberName)
+        {
+            <option> <code>@mymemberview</code> </option>
+        }
+
+    </select>
+
+
     <button type="submit">Checkout</button>
 </form>
 

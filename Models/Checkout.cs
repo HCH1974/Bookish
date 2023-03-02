@@ -12,10 +12,15 @@ public class Checkout
     public int MemberId { get; set; }
     [ForeignKey("Books")]
     public int BookId { get; set; }
- // [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
-    public static DateTime CheckoutDate { get; set; } = DateTime.Now;
-    public static DateTime ReturnDate { get; set; } = CheckoutDate.AddDays(30);
-    public bool Returned { get; set; } = false;
+    // [DatabaseGenerated(DatabaseGeneratedOption.Computed)]
+    public DateTime CheckoutDate { get; set; }
+    public DateTime ReturnDate { get; set; }
+    public bool Returned { get; set; }
 
-    public Checkout(){}
+    public Checkout()
+    {
+        CheckoutDate = DateTime.UtcNow.Date;
+        ReturnDate = CheckoutDate.AddDays(30);
+        Returned = false;
+    }
 }

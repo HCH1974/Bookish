@@ -12,8 +12,8 @@ using bookish;
 namespace bookish.Migrations
 {
     [DbContext(typeof(BookishContext))]
-    [Migration("20230301145416_BookishDB")]
-    partial class BookishDB
+    [Migration("20230302101552_BookishDataBase")]
+    partial class BookishDataBase
     {
         /// <inheritdoc />
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
