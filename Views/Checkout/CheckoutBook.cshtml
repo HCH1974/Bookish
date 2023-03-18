@@ -3,32 +3,24 @@
 @{
     ViewData["Title"] = "Checkout Book";
 }
+
 <h1>Checkout Book</h1>
 
 <form method="post" asp-controller="Checkout" asp-action="Checkout">
-
     <label>Book Name</label>
-    <select>
-
-        @foreach (var mybookview in Model.BookName)
+    <select name="bookId">
+        @foreach (var mybookview in Model.Books)
         {
-            <option> <code>@mybookview</code> </option>
+            <option value="@mybookview.Id"> @mybookview.BookName </option>
         }
-
     </select>
-
-
     <label>Member Name</label>
-    <select>
-
-        @foreach (var mymemberview in Model.MemberName)
+    <select name="memberId">
+        @foreach (var mymemberview in Model.Members)
         {
-            <option> <code>@mymemberview</code> </option>
+            <option value="@mymemberview.Id"> @mymemberview.FirstName </option>
         }
-
     </select>
-
-
     <button type="submit">Checkout</button>
 </form>
 

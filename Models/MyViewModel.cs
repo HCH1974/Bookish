@@ -1,6 +1,6 @@
 using bookish.Models;
 public class MyViewModel
 {
-    public List<string> BookName { get; set; }
-    public List<string> MemberName { get; set; }
+    public List<Books> Books { get; set; }
+    public List<Members> Members { get; set; }
 }

@@ -14,7 +14,7 @@ public class BooksController : Controller
     }
 
     [Route("Books")]
-    public IActionResult Books()
+    public IActionResult ListBooks()
     {
         var bookList = _IBookActions.BooksList();
         return View(bookList);
@@ -30,6 +30,6 @@ public class BooksController : Controller
     public IActionResult SubmitAddBook(Books book)
     {
         _IBookActions.SubmitAddBook(book);
-        return RedirectToAction("Books");
+        return RedirectToAction("ListBooks");
     }
 }

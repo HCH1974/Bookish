@@ -1,0 +1,32 @@
+@model List<Checkout>
+
+@{
+    ViewData["Title"] = "Checkouts List";
+}
+<h1>Checkouts List</h1>
+<table>
+    <tr>
+        <th>Checkout ID</th>
+        <th>Book ID</th>
+        <th>Member ID</th>
+        <th>Date Checked Out</th>
+        <th>Return Date</th>
+    </tr>
+   
+    @foreach (var checkout in Model)
+    {
+        <tr>
+            <form method="post" asp-controller="Checkout" asp-action="Checkin" >
+            <td><code asp-for="checkoutId">@checkout.Id</code> </td>
+            <td><code asp-for="Model.checkout.BookId">@checkout.BookId</code> </td>
+            <td><code asp-for="Model.checkout.MemberId">@checkout.MemberId</code> </td>
+            <td><code asp-for="Model.checkout.CheckoutDate">@checkout.CheckoutDate</code> </td>
+            <td><code asp-for="Model.checkout.ReturnDate">@checkout.ReturnDate</code> </td>
+            <td><button type="submit" name = "Id" value ="@checkout.Id" method="post" asp-controller="Checkout" asp-action="Checkin">Check In</button>
+            </td> 
+      
+            </form>
+
+        </tr>
+    }
+</table>

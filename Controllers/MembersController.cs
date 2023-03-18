@@ -8,7 +8,7 @@ public class MembersController : Controller
 {
 
     [Route("Members")]
-    public IActionResult Members()
+    public IActionResult ListMembers()
     {
         var context = new BookishContext();
         //dispalys the list of books available in the database
@@ -38,7 +38,7 @@ public class MembersController : Controller
             context.Members.Add(newMember);
             context.SaveChanges();
         }
-        return RedirectToAction("Members");
+        return RedirectToAction("ListMembers");
     }
 
 }
